@@ -11,12 +11,17 @@
 
 /*
 prescaler value      = 1024
-overflow_time        = (prescaler_value/F_CPU) * 65536
-number_of_over_flows = desierd_time/overflow_time
-preload_value        = (1-fraction) * 65536
+Tick_time            = prescaler_value/F_CPU
+overflow_time        = Tick_time * 65536
+number_of_interrupts = desierd_time/overflow_time
+preload_value        = (1-fraction)*65536
+for CTC mode:
+number_of_interrupts = desierd_time/((OCR_value + 1)*Tick_time)
 */
-#define TIMER1_NUMBER_OF_OVERFLOWS 2    //5sec
-#define TIMER1_PRELOAD_VALUE       52947
+#define TIMER1_NUMBER_OF_INTERRUPTS 2 
+#define TIMER1_PRELOAD_VALUE        0
+#define TIMER1_OCRA_VALUE           39062UL
+
 
 
 

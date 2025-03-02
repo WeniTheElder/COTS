@@ -16,7 +16,7 @@
 
 
 //timer1 APIs
-void TIMER1_voidInit               (u8 copy_u8ModeOfOperatino);
+void TIMER1_voidInit               (u8 copy_u8ModeOfOperation);
 void TIMER1_voidStartTimer         (void);
 void TIMER1_voidStopTimer          (void);
 void TIMER1_voidSetCallBackFunction(void(*pf)(void));
