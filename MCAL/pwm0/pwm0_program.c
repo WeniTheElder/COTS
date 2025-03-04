@@ -1,5 +1,5 @@
 /*
- * pwm_program.c
+ * pwm0_program.c
  *
  * Created: 3/1/2025 10:22:17 PM
  *  Author: Ahmad abdullatif
@@ -9,7 +9,7 @@
 #include "DIO_interface.h"
 #include "pwm0_interface.h"
 #include "pwm0_registers.h"
-#include "pwm0_config.h"
+
 
 void PWM0_voidInit (){
 	//set fast PWM mode
