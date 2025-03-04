@@ -8,16 +8,21 @@
 
 #ifndef LCD_INTERFACE_H_
 #define LCD_INTERFACE_H_
+
 #include "std_types.h"
 
-void LCD_voidInit            (void);
-void LCD_voidDisplayCharacter(u8 copy_u8char);
-void LCD_voidShiftDisplayLeft(u8 copy_u8NumberOfShits);
-void LCD_voidDisplayString   (u8 arr[]);
-void LCD_voidMoveToSecondLine(void);
 
-
-
-
-
+//APIs prototypes
+void LCD_voidSendCommand    (u8 copy_u8Command);
+void LCD_voidDisplayChar    (u8 copy_u8Data);
+void LCD_voidDisplayString  (u8* copy_u8Data);
+void LCD_voidInit           (void);
+void LCD_voidDisplayNumber  (u32 copy_u32Number);
+void LCD_voidClearLCD       (void);
+void LCD_voidMoveToLine2    (void);
+void LCD_voidTurnCursorOff  (void);
+void LCD_voidTurnCursorOn   (void);
+void LCD_voidShiftRight     (u8 copy_u8NumberOfShifts);
+void LCD_voidTurnBlinkingOn (void);
+void LCD_voidTurnBlinkingOff(void);
 #endif /* LCD_INTERFACE_H_ */

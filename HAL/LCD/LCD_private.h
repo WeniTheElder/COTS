@@ -9,9 +9,12 @@
 #ifndef LCD_PRIVATE_H_
 #define LCD_PRIVATE_H_
 
-void PRIV_voidSendHalfData(u8 copy_u8Data);
-void PRIV_voidEnable      (void);
-void PRIV_voidSendCommand (u8 copy_u8Command);
+#include "std_types.h"
+
+//APIs private prototypes
+void PRV_voidLcdEnable    (void);
+void PRV_voidWriteHalfPort(u8 copy_u8Data);
+
 
 
 

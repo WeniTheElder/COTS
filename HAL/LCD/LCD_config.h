@@ -8,43 +8,29 @@
 
 #ifndef LCD_CONFIG_H_
 #define LCD_CONFIG_H_
-#include "DIO_interface.h"
 
-//macros for data pins
-#define LCD_DB4_PORT    DIO_PORTA
-#define LCD_DB4_PIN     DIO_PIN3
-#define LCD_DB5_PORT    DIO_PORTA
-#define LCD_DB5_PIN     DIO_PIN4
-#define LCD_DB6_PORT    DIO_PORTA
-#define LCD_DB6_PIN     DIO_PIN5
-#define LCD_DB7_PORT    DIO_PORTA
-#define LCD_DB7_PIN     DIO_PIN6
+//RS macros
+#define LCD_RS_PORT DIO_PORTC
+#define LCD_RS_PIN  DIO_PIN0
 
-//macros for control pins
-#define LCD_RS_PORT     DIO_PORTA
-#define LCD_RS_PIN      DIO_PIN0
-#define LCD_RW_PORT     DIO_PORTA
-#define LCD_RW_PIN      DIO_PIN1
-#define LCD_ENABLE_PORT DIO_PORTA
+//RW macros
+#define LCD_RW_PORT DIO_PORTC
+#define LCD_RW_PIN  DIO_PIN1
+
+//Enable macros
+#define LCD_ENABLE_PORT DIO_PORTC
 #define LCD_ENABLE_PIN  DIO_PIN2
 
-/*LCD settings*/
+//Data port macros
+#define LCD_D4_PORT DIO_PORTC
+#define LCD_D5_PORT DIO_PORTC
+#define LCD_D6_PORT DIO_PORTC
+#define LCD_D7_PORT DIO_PORTC
 
-//0-> 4-bit mode   1-> 8-bit mode 
-#define LCD_DATA_LENGTH 0
-
-//0-> 1 line       1-> 2 lines
-#define LCD_NUMBER_OF_DISPLAY_LINES 1
-
-//0-> cursor off   1-> cursor on
-#define LCD_CURSOR 0
-
-//0-> blinking off 1-> blinking on
-#define LCD_CURSOR_BLINKING 0
-
-//0-> 5*8 font     1-> 5*11 font
-#define LCD_FONT_TYPE 0
-
-
+//Data pins macros
+#define LCD_D4_PIN  DIO_PIN3
+#define LCD_D5_PIN  DIO_PIN4 
+#define LCD_D6_PIN  DIO_PIN5
+#define LCD_D7_PIN  DIO_PIN6
 
 #endif /* LCD_CONFIG_H_ */
