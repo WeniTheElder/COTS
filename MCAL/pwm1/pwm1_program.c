@@ -21,7 +21,7 @@ void PWM1_voidInit(){
 }
 void PWM1_voidStart(f32 copy_u8DutycycleValue,u16 copy_u16PWMfrequency){
 	//set frequency
-	ICR1_REGISTER  = (PWM1_TIMER1_FREQUENCY/copy_u16PWMfrequency)-1;
+	ICR1_REGISTER  = ((1000000UL/copy_u16PWMfrequency)/64)-1;
 	//set duty cycle
 	OCR1A_REGISTER = (copy_u8DutycycleValue*(ICR1_REGISTER+1)/100)-1;
 	//set prescaller to 1024
