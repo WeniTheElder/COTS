@@ -9,7 +9,7 @@
 #ifndef KEYPAD_CONFIG_H_
 #define KEYPAD_CONFIG_H_
 
-//macors for columns
+//macros for columns
 #define KEYPAD_COLUMN0_PORT DIO_PORTC
 #define KEYPAD_COLUMN0_PIN  DIO_PIN0 
 #define KEYPAD_COLUMN1_PORT DIO_PORTC

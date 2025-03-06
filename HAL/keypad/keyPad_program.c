@@ -12,10 +12,10 @@
 
 void KEYPAD_voidInit(void){
 	//initializing rows
-	DIO_voidSetPinValue(KEYPAD_ROW0_PORT,KEYPAD_ROW0_PIN,DIO_INPUT);
-	DIO_voidSetPinValue(KEYPAD_ROW1_PORT,KEYPAD_ROW1_PIN,DIO_INPUT);
-	DIO_voidSetPinValue(KEYPAD_ROW2_PORT,KEYPAD_ROW2_PIN,DIO_INPUT);
-	DIO_voidSetPinValue(KEYPAD_ROW3_PORT,KEYPAD_ROW3_PIN,DIO_INPUT);
+	DIO_voidSetPinDirection(KEYPAD_ROW0_PORT,KEYPAD_ROW0_PIN,DIO_INPUT);
+	DIO_voidSetPinDirection(KEYPAD_ROW1_PORT,KEYPAD_ROW1_PIN,DIO_INPUT);
+	DIO_voidSetPinDirection(KEYPAD_ROW2_PORT,KEYPAD_ROW2_PIN,DIO_INPUT);
+	DIO_voidSetPinDirection(KEYPAD_ROW3_PORT,KEYPAD_ROW3_PIN,DIO_INPUT);
 	//activating internal pull-up resistor for rows
 	DIO_voidSetPinValue(KEYPAD_ROW0_PORT,KEYPAD_ROW0_PIN,DIO_HIGH);
 	DIO_voidSetPinValue(KEYPAD_ROW1_PORT,KEYPAD_ROW1_PIN,DIO_HIGH);
@@ -50,7 +50,7 @@ void KEYPAD_voidGetPressedKey(u8* copy_pu8pressedKey){
 			DIO_voidGetPinValue(local_u8RowPorts[local_u8RowsCounter],local_u8RowPins[local_u8RowsCounter],&local_u8PinValue);
 			//if a key is pressed
 			if(local_u8PinValue == 0){
-				//while key is holded 
+				//while key is holden 
 				while(local_u8PinValue == 0){
 					DIO_voidGetPinValue(local_u8RowPorts[local_u8RowsCounter],local_u8RowPins[local_u8RowsCounter],&local_u8PinValue);		
 				}

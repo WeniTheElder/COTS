@@ -102,3 +102,6 @@ void LCD_voidDisplayString(u8 copy_pu8string[]){
 void LCD_voidMoveToSecondLine(void){
 	PRIV_voidSendCommand(0b11000000);	
 }
+void LCD_voidClearDisplay(void){
+	PRIV_voidSendCommand(0b0000001);
+}
