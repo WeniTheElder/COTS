@@ -14,12 +14,12 @@
 
 void UART_voidInit(void)
 {
-	//set baud rate value
+	//set baud rate value to 9600
 	UBRRL_REG = UBRR_VALUE;
 	//disable double speed mode
 	CLEAR_BIT(UCSRA_REG, U2X_BIT);
 	
-	// Disable uart interrupts
+	// Disable UART interrupts
 	CLEAR_BIT(UCSRB_REG, RXCIE_BIT);
 	CLEAR_BIT(UCSRB_REG, TXCIE_BIT);
 	CLEAR_BIT(UCSRB_REG, UDRIE_BIT);
