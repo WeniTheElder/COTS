@@ -9,8 +9,6 @@
 #ifndef UART_INTERFACE_H_
 #define UART_INTERFACE_H_
 
-#define UBRR_VALUE 103
-
 void UART_voidInit    (void);
 void UART_voidTxChar  (u8 copy_u8TxData);
 void UART_voidRxChar  (u8* copy_pu8RxData);

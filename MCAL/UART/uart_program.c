@@ -8,6 +8,7 @@
 #include "std_types.h"
 #include "bit_math.h"
 #include "uart_interface.h"
+#include "uart_private.h"
 #include "uart_registers.h"
 
 
