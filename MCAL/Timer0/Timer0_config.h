@@ -9,13 +9,21 @@
 #ifndef TIMER0_CONFIG_H_
 #define TIMER0_CONFIG_H_
 /*
-prescaler value      = 1024
+prescaler_value      = 64
+tick_time            = prescaller_value/F_CPU
+Normal mode:
 overflow_time        = (prescaler_value/F_CPU) * 256
 number_of_over_flows = desierd_time/overflow_time
 preload_value        = (1-fraction)*256
+
+CTC mode:
+--you try to set OCR to a value that makes the number of overflows(interrupts) integer value--
+
+number_of_overflows  = desired_time/((OCR0+1)*tick_time)
 */
-#define TIMER0_NUMBER_OF_OVERFLOWS 122    //2sec  
+#define TIMER0_NUMBER_OF_OVERFLOWS 5000   //for 1 seconds in CTC mode    
 #define TIMER0_PRELOAD_VALUE       0      
+#define TIMER0_OCR0_VALUE          250
 
 
 

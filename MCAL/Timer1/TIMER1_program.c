@@ -31,19 +31,19 @@ void TIMER1_voidInit(u8 copy_u8ModeOfOperation){
 		CLEAR_BIT(TCCR1A_REGISTER,WGM11_BIT);
 		SET_BIT  (TCCR1B_REGISTER,WGM12_BIT);
 		CLEAR_BIT(TCCR1B_REGISTER,WGM13_BIT);
-		//setting OCR value
+		//set OCR value
 		OCR1A_REGISTER = TIMER1_OCRA_VALUE;
-		//enabling OCRA interrupt
+		//enable OCRA interrupt
 		SET_BIT(TIMSK_REGISTER,OCIE1A_BIT);
 		break;
 	}
 	
 }
 void TIMER1_voidStartTimer(void){
-	//activating the timer/counter by setting prescaler value (1024)
+	//activating the timer/counter by setting prescaler value to 64
 	SET_BIT  (TCCR1B_REGISTER,CS10_BIT);
-	CLEAR_BIT(TCCR1B_REGISTER,CS11_BIT);
-	SET_BIT  (TCCR1B_REGISTER,CS12_BIT);
+	SET_BIT  (TCCR1B_REGISTER,CS11_BIT);
+	CLEAR_BIT(TCCR1B_REGISTER,CS12_BIT);
 	
 }
 void TIMER1_voidStopTimer(void){

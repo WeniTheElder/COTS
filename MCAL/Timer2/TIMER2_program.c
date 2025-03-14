@@ -19,19 +19,26 @@ void TIMER2_voidInit(u8 copy_u8ModeOfOperatino){
 		CLEAR_BIT(TCCR2_REGISTER,WGM21_BIT);
 		//setting preload value
 		TCNT2_REGISTER = TIMER2_PRELOAD_VALUE;
+		//enable overflow interrupt
+		SET_BIT(TIMSK_REGISTER,TOIE2_BIT);
 		break;
 		case TIMER2_CTC_MODE:
+		CLEAR_BIT(TCCR2_REGISTER,WGM20_BIT);
+		SET_BIT  (TCCR2_REGISTER,WGM21_BIT);
+		//setting OC value in OCR2
+		OCR2_REGISTER = TIMER2_OCR2_VALUE;
+		//enable output compare match interrupt
+		SET_BIT(TIMSK_REGISTER,OCIE2_BIT);
 		break;
 	}
-	//enabling overflow interrupt
-	SET_BIT(TIMSK_REGISTER,TOIE2_BIT);
+	
 	
 }
 void TIMER2_voidStartTimer(void){
-	//activating the timer/counter by selecting prescaler value (1024)
-	SET_BIT(TCCR2_REGISTER,CS20_BIT);
-	SET_BIT(TCCR2_REGISTER,CS21_BIT);
-	SET_BIT(TCCR2_REGISTER,CS22_BIT);
+	//activating the timer/counter by selecting prescaler value to 64
+	CLEAR_BIT(TCCR2_REGISTER,CS20_BIT);
+	CLEAR_BIT(TCCR2_REGISTER,CS21_BIT);
+	SET_BIT  (TCCR2_REGISTER,CS22_BIT);
 }
 void TIMER2_voidStopTimer(void){
 	CLEAR_BIT(TCCR2_REGISTER,CS20_BIT);
@@ -50,6 +57,17 @@ void __vector_5 (void){
 	if(local_u16OverflowCounter == TIMER2_NUMBER_OF_OVERFLOWS){
 		local_u16OverflowCounter = 0;
 		TCNT2_REGISTER = TIMER2_PRELOAD_VALUE;
+		priv_pfCallBackFucntion();
+	}
+}
+
+
+void __vector_4 (void) __attribute__ ((signal));
+void __vector_4 (void){
+	static u16 local_u16overFlowsCounterr = 0;
+	local_u16overFlowsCounterr++;
+	if(local_u16overFlowsCounterr == TIMER2_NUMBER_OF_OVERFLOWS){
+		local_u16overFlowsCounterr = 0;
 		priv_pfCallBackFucntion();
 	}
 }
