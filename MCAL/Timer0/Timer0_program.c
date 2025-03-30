@@ -30,7 +30,7 @@ void TIMER0_voidInit(u8 copy_u8ModeOfOperatino){
 		//setting OC value in OCR0
 		OCR0_REGISTER = TIMER0_OCR0_VALUE;
 		//enable output compare match interrupt
-		SET_BIT(TIMSK_REGISTER,TOIE0_BIT);
+		SET_BIT(TIMSK_REGISTER,OCIE0_BIT);
 		break;
 	}
 	
@@ -63,8 +63,8 @@ void __vector_11 (void){
 	}
 }
 
-void __vector10__ (void) __attribute__ ((signal));
-void __vector10__ (void){
+void __vector_10 (void) __attribute__ ((signal));
+void __vector_10 (void){
 	static u16 local_u16OverFlowsCounter = 0;
 	++local_u16OverFlowsCounter;
 	if(local_u16OverFlowsCounter == TIMER0_NUMBER_OF_OVERFLOWS){
