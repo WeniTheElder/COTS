@@ -8,6 +8,7 @@
 #include "bit_math.h"
 #include "pwm1_interface.h"
 #include "pwm1_registers.h"
+#include "DIO_interface.h"
 
 void PWM1_voidInit(){
 	//setting non inverting mode and PWM output on pin OC1A
@@ -18,6 +19,8 @@ void PWM1_voidInit(){
 	SET_BIT  (TCCR1A_REGISTER,WGM11_BIT);
 	SET_BIT  (TCCR1B_REGISTER,WGM12_BIT);
 	SET_BIT  (TCCR1B_REGISTER,WGM13_BIT);
+	//set OCR1A pin as output
+	DIO_voidSetPinDirection(DIO_PORTD,DIO_PIN5,DIO_OUTPUT);
 }
 void PWM1_voidStart(f32 copy_f32DutycycleValue,u16 copy_u16PWMfrequency){
 	//set frequency
