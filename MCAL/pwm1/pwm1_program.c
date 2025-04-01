@@ -27,7 +27,7 @@ void PWM1_voidStart(f32 copy_f32DutycycleValue,u16 copy_u16PWMfrequency){
 	ICR1_REGISTER  = (PWM1_TIMER1_FREQUENCY/copy_u16PWMfrequency)-1;
 	//set duty cycle
 	OCR1A_REGISTER = (copy_f32DutycycleValue*(ICR1_REGISTER+1)/100)-1;
-	//set prescaller to 1024
+	//set prescaller to 64
 	SET_BIT  (TCCR1B_REGISTER, CS10_BIT );
 	SET_BIT  (TCCR1B_REGISTER, CS11_BIT );
 	CLEAR_BIT(TCCR1B_REGISTER, CS12_BIT); 
