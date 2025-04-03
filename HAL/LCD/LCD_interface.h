@@ -16,6 +16,7 @@ void LCD_voidShiftDisplayLeft(u8 copy_u8NumberOfShits);
 void LCD_voidDisplayString   (u8 arr[]);
 void LCD_voidMoveToSecondLine(void);
 void LCD_voidClearDisplay    (void);
+void LCD_voidDisplayNumber   (u32 copy_u32Number);
 
 
 

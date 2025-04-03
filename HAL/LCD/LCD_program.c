@@ -105,3 +105,21 @@ void LCD_voidMoveToSecondLine(void){
 void LCD_voidClearDisplay(void){
 	PRIV_voidSendCommand(0b0000001);
 }
+void LCD_voidDisplayNumber(u32 copy_u32Number){
+	u32 local_u32ReservedNumber = 1;
+	if(copy_u32Number == 0){
+		LCD_voidDisplayNumber('0');
+	}
+	else{
+		while(copy_u32Number != 0){
+			local_u32ReservedNumber *= 10;
+			local_u32ReservedNumber += copy_u32Number%10;
+			copy_u32Number /= 10;
+		}
+		while(local_u32ReservedNumber != 1){
+			LCD_voidDisplayCharacter((local_u32ReservedNumber%10)+'0');
+			local_u32ReservedNumber /=10;
+		}
+		return;
+	}
+}

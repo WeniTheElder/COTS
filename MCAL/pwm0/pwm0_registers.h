@@ -29,7 +29,7 @@
 
 #define TIFR_REGISTER  (*(volatile u8*)0x58)
 #define OCF0_BIT  1
-#define TOV0_BIT  1
+#define TOV0_BIT  0
 
 #define SFIOR_REGISTER (*(volatile u8*)0x50)
 #define PSR10_BIT 0

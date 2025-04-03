@@ -18,6 +18,9 @@ void PWM0_voidInit (){
 	//set PWM mode to non inverting
 	SET_BIT  (TCCR0_REGISTER,COM01_BIT);
 	CLEAR_BIT(TCCR0_REGISTER,COM00_BIT);
+
+	//set oc0 pin as output 
+	DIO_voidSetPinDirection(DIO_PORTB,DIO_PIN3,DIO_OUTPUT);
 }
 void PWM0_voidStart(u8 copy_u8DutyCycle){
 	OCR0_REGISTER = (((copy_u8DutyCycle*256)/100)-1);
